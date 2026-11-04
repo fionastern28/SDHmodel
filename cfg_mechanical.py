@@ -27,8 +27,8 @@ elif cfg.stim_ratios == 0.25:cfg.freq = '100mN'
 else: cfg.freq = '50mN'
 
 # USED FOR PARTIAL MODEL
-cfg.C_DYN_AMPA = 0.184135 * 0.003            
-cfg.Ab_DYN_AMPA = 0.00208312 * 100
+cfg.C_DYN_AMPA = 0.184135 * 0.002            
+cfg.Ab_DYN_AMPA = 0.00208312 * 500
 cfg.C_SOM_AMPA = 0.00067115 * 7.5
 cfg.C_SOM_NMDA = 0.000407345 * 7.5
 
@@ -45,6 +45,10 @@ cfg.EX_NK1_NK1 = 9.2715e-07 * EX_NK_SCALE
 DYN_NK_SCALE = 10
 cfg.DYN_NK1_GABA = 6.3720e-06 * DYN_NK_SCALE
 cfg.DYN_NK1_GLY = 2.3608e-06 * DYN_NK_SCALE
+
+DYN_SOM_SCALE = 10
+cfg.DYN_SOM_GABA = 4.50e-05 * DYN_SOM_SCALE        
+cfg.DYN_SOM_GLY = 4.50e-05 * DYN_SOM_SCALE
 
 # SYNAPTIC WEIGHT
 cfg.Ab_EX_AMPA = 0.0221559
@@ -65,8 +69,7 @@ cfg.PV_GABA = 0.29416
 cfg.PV_GLY =  0.011521           
 cfg.DYN_ISLET_GABA = 0.36182     
 cfg.ISLET_GABA = 0.34293         
-cfg.DYN_EX_GABA = 4.50e-05        
-cfg.DYN_EX_GLY = 4.50e-05         
+    
 cfg.PKC_AMPA = 0.0021
 cfg.PKC_NMDA = 0.00315
 cfg.TrC_AMPA = 0.00225             
@@ -74,7 +77,10 @@ cfg.TrC_NMDA = 0.003
 cfg.VGLUT3_SOM_AMPA = 0.00006
 cfg.VGLUT3_SOM_NMDA = 0.00006
 cfg.DOR_AMPA = 0.002250          
-cfg.DOR_NMDA = 0.002250           
+cfg.DOR_NMDA = 0.002250     
+
+cfg.DYN_EX_GABA = 4.50e-05  
+cfg.DYN_EX_GLY = 4.50e-05 
 
 
 cfg.recordTraces['vs'] = {'sec':'soma', 'loc':0.5,'var':'v'}
