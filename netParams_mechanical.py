@@ -33,8 +33,8 @@ with open('spkt/spkt_C_%s.json' %(cfg.freq), 'rb') as spkt_C: spkt_C = json.load
 spkt_SAI_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
 spkt_SAII_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
 
-spkt_SAI_pulse = make_poisson_pop(rate=60, n_cells=10, t_start=4500, t_stop=4530, seed_base= None)
-spkt_SAII_pulse = make_poisson_pop(rate=60, n_cells=10, t_start=4500, t_stop=4530, seed_base= None)
+spkt_SAI_pulse = make_poisson_pop(rate=80, n_cells=10, t_start=4500, t_stop=4530, seed_base= None)
+spkt_SAII_pulse = make_poisson_pop(rate=80, n_cells=10, t_start=4500, t_stop=4530, seed_base= None)
 
 def merge_trains(a, b):
    return [sorted(x + y) for x, y in zip(a, b)]
