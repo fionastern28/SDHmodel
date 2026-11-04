@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+x86_64/
+arm64/
+*.o
+*.c
+output/
+data/
+*.pkl
+.DS_Store
