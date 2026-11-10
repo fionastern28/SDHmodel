@@ -33,32 +33,38 @@ with open('spkt/spkt_C_%s.json' %(cfg.freq), 'rb') as spkt_C: spkt_C = json.load
 spkt_SAI_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
 spkt_SAII_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
 
-spkt_SAI_pulse = make_poisson_pop(rate=80, n_cells=10, t_start=4500, t_stop=4505, seed_base= None)
-spkt_SAII_pulse = make_poisson_pop(rate=80, n_cells=10, t_start=4500, t_stop=4505, seed_base= None)
+spkt_SAI_pulse = make_poisson_pop(rate=500, n_cells=10, t_start=4500, t_stop=4505, seed_base= None)
+spkt_SAII_pulse = make_poisson_pop(rate=500, n_cells=10, t_start=4500, t_stop=4505, seed_base= None)
 
-spkt_SAI_pulse2 = make_poisson_pop(rate=80, n_cells=10, t_start=4600, t_stop=4605, seed_base= None)
-spkt_SAII_pulse2 = make_poisson_pop(rate=80, n_cells=10, t_start=4600, t_stop=4605, seed_base= None)
+spkt_SAI_pulse2 = make_poisson_pop(rate=500, n_cells=10, t_start=4600, t_stop=4605, seed_base= None)
+spkt_SAII_pulse2 = make_poisson_pop(rate=500, n_cells=10, t_start=4600, t_stop=4605, seed_base= None)
 
-spkt_SAI_pulse3 = make_poisson_pop(rate=80, n_cells=10, t_start=4700, t_stop=4705, seed_base= None)
-spkt_SAII_pulse3 = make_poisson_pop(rate=80, n_cells=10, t_start=4700, t_stop=4705, seed_base= None)
+spkt_SAI_pulse3 = make_poisson_pop(rate=500, n_cells=10, t_start=4700, t_stop=4705, seed_base= None)
+spkt_SAII_pulse3 = make_poisson_pop(rate=500, n_cells=10, t_start=4700, t_stop=4705, seed_base= None)
 
-spkt_SAI_pulse4 = make_poisson_pop(rate=80, n_cells=10, t_start=4800, t_stop=4805, seed_base= None)
-spkt_SAII_pulse4 = make_poisson_pop(rate=80, n_cells=10, t_start=4800, t_stop=4805, seed_base= None)
+spkt_SAI_pulse4 = make_poisson_pop(rate=500, n_cells=10, t_start=4800, t_stop=4805, seed_base= None)
+spkt_SAII_pulse4 = make_poisson_pop(rate=500, n_cells=10, t_start=4800, t_stop=4805, seed_base= None)
 
-spkt_SAI_pulse5 = make_poisson_pop(rate=80, n_cells=10, t_start=4900, t_stop=4905, seed_base= None)
-spkt_SAII_pulse5 = make_poisson_pop(rate=80, n_cells=10, t_start=4900, t_stop=4905, seed_base= None)
+spkt_SAI_pulse5 = make_poisson_pop(rate=500, n_cells=10, t_start=4900, t_stop=4905, seed_base= None)
+spkt_SAII_pulse5 = make_poisson_pop(rate=500, n_cells=10, t_start=4900, t_stop=4905, seed_base= None)
 
 def merge_trains(a, b, c, d, e, f):
    return [sorted(u + v + w + x + y + z) for u, v, w, x, y, z in zip(a, b, c, d, e, f)]
 
-spkt_SAI  = merge_trains(spkt_SAI_base,  spkt_SAI_pulse,spkt_SAI_pulse2, spkt_SAI_pulse3, spkt_SAI_pulse4, spkt_SAI_pulse5)
-spkt_SAII = merge_trains(spkt_SAII_base, spkt_SAII_pulse, spkt_SAII_pulse2, spkt_SAII_pulse3, spkt_SAII_pulse4, spkt_SAII_pulse5)
+def merge_two_trains(a, b):
+   return [sorted(u + v) for u, v in zip(a, b)]
+
+#spkt_SAI  = merge_trains(spkt_SAI_base,  spkt_SAI_pulse,spkt_SAI_pulse2, spkt_SAI_pulse3, spkt_SAI_pulse4, spkt_SAI_pulse5)
+#spkt_SAII = merge_trains(spkt_SAII_base, spkt_SAII_pulse, spkt_SAII_pulse2, spkt_SAII_pulse3, spkt_SAII_pulse4, spkt_SAII_pulse5)
+
+spkt_SAI = merge_two_trains(spkt_SAI_base, spkt_SAI_pulse)
+spkt_SAII = merge_two_trains(spkt_SAII_base, spkt_SAI_pulse)
 
 spkt_C = make_poisson_pop(rate=7, n_cells=80, t_start=0, t_stop=cfg.duration, seed_base= None)
 
 ## PRIMARY AFFERENTS TIME-VARYING STIMULUS (NORMAL STIMULUS)
-netParams.popParams['Ab_SAI'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAI}  # input from Ab_slow adapting type I
-netParams.popParams['Ab_SAII'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAII}  # input from Ab_slow adapting type II
+#netParams.popParams['Ab_SAI'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAI}  # input from Ab_slow adapting type I
+#netParams.popParams['Ab_SAII'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAII}  # input from Ab_slow adapting type II
 #netParams.popParams['Ad'] = {'cellModel': 'VecStim', 'numCells': 20, 'spkTimes': spkt_Ad}  # input from Adelta
 netParams.popParams['C_PEP'] = {'cellModel': 'VecStim', 'numCells': 80, 'spkTimes': spkt_C}  # input from peptidergic C fibers
 netParams.popParams['C_NP'] = {'cellModel': 'VecStim', 'numCells': 80, 'spkTimes': spkt_C}  # input from non-peptidergic C fibers

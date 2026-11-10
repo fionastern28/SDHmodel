@@ -7,7 +7,7 @@ from netpyne import sim
 from neuron import h
 import os 
 
-N_RUNS = 5                
+N_RUNS = 20                
 
 for run in range(N_RUNS):
     print(f"Run {run+1}/{N_RUNS}")
