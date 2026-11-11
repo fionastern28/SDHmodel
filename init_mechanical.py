@@ -15,7 +15,7 @@ for run in range(N_RUNS):
 
     simConfig.simLabel = f'run{run+1:02d}'
     # Different random seeds per trial 
-    simConfig.seeds = {'conn': 4321 + run, 'stim': 1234 + run, 'loc': 4321 + run}
+    simConfig.seeds = {'conn': 4311 + run, 'stim': 1214 + run, 'loc': 4121 + run}
     simConfig.spktSeed = run*297
 
     # Create, Simulate, and Analyze the Network:

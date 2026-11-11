@@ -33,54 +33,21 @@ with open('spkt/spkt_C_%s.json' %(cfg.freq), 'rb') as spkt_C: spkt_C = json.load
 spkt_SAI_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
 spkt_SAII_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
 
-spkt_SAI_pulse = make_poisson_pop(rate=500, n_cells=10, t_start=11500, t_stop=11505, seed_base= None)
-spkt_SAII_pulse = make_poisson_pop(rate=500, n_cells=10, t_start=11500, t_stop=11505, seed_base= None)
+# --- Stimulation train settings ---
+PULSE_START = 11500   # ms, first pulse onset
+PULSE_END   = 13000   # ms, no pulse starts after this minus PULSE_WIDTH
+PULSE_WIDTH = 5       # ms, duration of each pulse
+PULSE_GAP   = 15      # ms, off time between pulses
+PULSE_RATE  = 500     # Hz, Poisson rate during each pulse
+PERIOD = PULSE_WIDTH + PULSE_GAP   # 20 ms -> 50 Hz
 
-spkt_SAI_pulse2 = make_poisson_pop(rate=500, n_cells=10, t_start=11600, t_stop=11605, seed_base= None)
-spkt_SAII_pulse2 = make_poisson_pop(rate=500, n_cells=10, t_start=11600, t_stop=11605, seed_base= None)
-
-spkt_SAI_pulse3 = make_poisson_pop(rate=500, n_cells=10, t_start=11700, t_stop=11705, seed_base= None)
-spkt_SAII_pulse3 = make_poisson_pop(rate=500, n_cells=10, t_start=11700, t_stop=11705, seed_base= None)
-
-spkt_SAI_pulse4 = make_poisson_pop(rate=500, n_cells=10, t_start=11800, t_stop=11805, seed_base= None)
-spkt_SAII_pulse4 = make_poisson_pop(rate=500, n_cells=10, t_start=11800, t_stop=11805, seed_base= None)
-
-spkt_SAI_pulse5 = make_poisson_pop(rate=500, n_cells=10, t_start=11900, t_stop=11905, seed_base= None)
-spkt_SAII_pulse5 = make_poisson_pop(rate=500, n_cells=10, t_start=11900, t_stop=11905, seed_base= None)
-
-spkt_SAI_pulse6 = make_poisson_pop(rate=500, n_cells=10, t_start=11900, t_stop=11905, seed_base= None)
-spkt_SAII_pulse6 = make_poisson_pop(rate=500, n_cells=10, t_start=11900, t_stop=11905, seed_base= None)
-
-spkt_SAI_pulse7 = make_poisson_pop(rate=500, n_cells=10, t_start=12000, t_stop=12005, seed_base= None)
-spkt_SAII_pulse7 = make_poisson_pop(rate=500, n_cells=10, t_start=12000, t_stop=12005, seed_base= None)
-
-spkt_SAI_pulse8 = make_poisson_pop(rate=500, n_cells=10, t_start=12100, t_stop=12105, seed_base= None)
-spkt_SAII_pulse8 = make_poisson_pop(rate=500, n_cells=10, t_start=12100, t_stop=12105, seed_base= None)
-
-spkt_SAI_pulse9 = make_poisson_pop(rate=500, n_cells=10, t_start=12200, t_stop=12205, seed_base= None)
-spkt_SAII_pulse9 = make_poisson_pop(rate=500, n_cells=10, t_start=12200, t_stop=12205, seed_base= None)
-
-spkt_SAI_pulse10 = make_poisson_pop(rate=500, n_cells=10, t_start=12300, t_stop=12305, seed_base= None)
-spkt_SAII_pulse10 = make_poisson_pop(rate=500, n_cells=10, t_start=12300, t_stop=12305, seed_base= None)
-
-spkt_SAI_pulse11 = make_poisson_pop(rate=500, n_cells=10, t_start=12400, t_stop=12405, seed_base= None)
-spkt_SAII_pulse11 = make_poisson_pop(rate=500, n_cells=10, t_start=12400, t_stop=12405, seed_base= None)
-
-spkt_SAI_pulse12 = make_poisson_pop(rate=500, n_cells=10, t_start=12500, t_stop=12505, seed_base= None)
-spkt_SAII_pulse12 = make_poisson_pop(rate=500, n_cells=10, t_start=12500, t_stop=12505, seed_base= None)
-
-spkt_SAI_pulse13 = make_poisson_pop(rate=500, n_cells=10, t_start=12600, t_stop=12605, seed_base= None)
-spkt_SAII_pulse13 = make_poisson_pop(rate=500, n_cells=10, t_start=12600, t_stop=12605, seed_base= None)
-
-spkt_SAI_pulse14 = make_poisson_pop(rate=500, n_cells=10, t_start=12700, t_stop=12705, seed_base= None)
-spkt_SAII_pulse14 = make_poisson_pop(rate=500, n_cells=10, t_start=12700, t_stop=12705, seed_base= None)
-
-spkt_SAI_pulse15 = make_poisson_pop(rate=500, n_cells=10, t_start=12800, t_stop=12805, seed_base= None)
-spkt_SAII_pulse15 = make_poisson_pop(rate=500, n_cells=10, t_start=12800, t_stop=12805, seed_base= None)
-
-spkt_SAI_pulse16 = make_poisson_pop(rate=500, n_cells=10, t_start=12900, t_stop=12905, seed_base= None)
-spkt_SAII_pulse16 = make_poisson_pop(rate=500, n_cells=10, t_start=12900, t_stop=12905, seed_base= None)
-
+spkt_SAI_pulses = []
+spkt_SAII_pulses = []
+for t0 in range(PULSE_START, PULSE_END - PULSE_WIDTH + 1, PERIOD):
+    spkt_SAI_pulses.append(make_poisson_pop(rate=PULSE_RATE, n_cells=10,
+                                            t_start=t0, t_stop=t0 + PULSE_WIDTH, seed_base=None))
+    spkt_SAII_pulses.append(make_poisson_pop(rate=PULSE_RATE, n_cells=10,
+                                             t_start=t0, t_stop=t0 + PULSE_WIDTH, seed_base=None))
 from itertools import chain
 
 def merge_trains(*trains):
@@ -89,11 +56,8 @@ def merge_trains(*trains):
 def merge_two_trains(a, b):
    return [sorted(u + v) for u, v in zip(a, b)]
 
-spkt_SAI  = merge_trains(spkt_SAI_base,  spkt_SAI_pulse,spkt_SAI_pulse2, spkt_SAI_pulse3, spkt_SAI_pulse4, spkt_SAI_pulse5, spkt_SAI_pulse6, spkt_SAI_pulse7, spkt_SAI_pulse8, spkt_SAI_pulse9, spkt_SAI_pulse10, spkt_SAI_pulse11, spkt_SAI_pulse12, spkt_SAI_pulse13, spkt_SAI_pulse14, spkt_SAI_pulse15, spkt_SAI_pulse16)
-spkt_SAII = merge_trains(spkt_SAII_base, spkt_SAII_pulse, spkt_SAII_pulse2, spkt_SAII_pulse3, spkt_SAII_pulse4, spkt_SAII_pulse5, spkt_SAII_pulse6, spkt_SAII_pulse7, spkt_SAII_pulse8, spkt_SAII_pulse9, spkt_SAII_pulse10, spkt_SAII_pulse11, spkt_SAII_pulse12, spkt_SAII_pulse13, spkt_SAII_pulse14, spkt_SAII_pulse15, spkt_SAII_pulse16)
-
-#spkt_SAI = merge_two_trains(spkt_SAI_base, spkt_SAI_pulse)
-#spkt_SAII = merge_two_trains(spkt_SAII_base, spkt_SAI_pulse)
+spkt_SAI  = merge_trains(spkt_SAI_base,  *spkt_SAI_pulses)
+spkt_SAII = merge_trains(spkt_SAII_base, *spkt_SAII_pulses)
 
 spkt_C = make_poisson_pop(rate=7, n_cells=80, t_start=0, t_stop=cfg.duration, seed_base= None)
 
