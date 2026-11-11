@@ -11,7 +11,7 @@ cfg = specs.SimConfig()
 
 cfg.hParams = {'celsius': 36, 'v_init': -60 }
 cfg.vrest = cfg.hParams['v_init']
-cfg.duration = 20000
+cfg.duration = 13000
  
 cfg.recordStep = 0.025
 
@@ -35,6 +35,8 @@ DYN_SOM_SCALE = 5
 C_DYN_SCALE = 0.002
 AB_DYN_SCALE = 500
 C_SOM_SCALE = 7.5
+AB_PKC_SCALE = .25
+AB_PV_SCALE = .5
 
 cfg.C_DYN_AMPA = 0.184135 * C_DYN_SCALE      
 cfg.Ab_DYN_AMPA = 0.00208312 * AB_DYN_SCALE
@@ -54,6 +56,12 @@ cfg.DYN_NK1_GLY = 2.3608e-06 * DYN_NK_SCALE
 
 cfg.DYN_SOM_GABA = 4.50e-05 * DYN_SOM_SCALE        
 cfg.DYN_SOM_GLY = 4.50e-05 * DYN_SOM_SCALE
+
+cfg.Ab_PKC_AMPA = 0.0221559 * AB_PKC_SCALE
+cfg.Ab_PKC_NMDA = 0.015 * AB_PKC_SCALE
+
+cfg.Ab_PV_AMPA = 0.00208312 * AB_PV_SCALE
+cfg.Ab_PV_NMDA = 0.0098189 * AB_PV_SCALE
 
 # SYNAPTIC WEIGHT
 cfg.Ab_EX_AMPA = 0.0221559

@@ -33,38 +33,73 @@ with open('spkt/spkt_C_%s.json' %(cfg.freq), 'rb') as spkt_C: spkt_C = json.load
 spkt_SAI_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
 spkt_SAII_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
 
-spkt_SAI_pulse = make_poisson_pop(rate=500, n_cells=10, t_start=4500, t_stop=4505, seed_base= None)
-spkt_SAII_pulse = make_poisson_pop(rate=500, n_cells=10, t_start=4500, t_stop=4505, seed_base= None)
+spkt_SAI_pulse = make_poisson_pop(rate=500, n_cells=10, t_start=11500, t_stop=11505, seed_base= None)
+spkt_SAII_pulse = make_poisson_pop(rate=500, n_cells=10, t_start=11500, t_stop=11505, seed_base= None)
 
-spkt_SAI_pulse2 = make_poisson_pop(rate=500, n_cells=10, t_start=4600, t_stop=4605, seed_base= None)
-spkt_SAII_pulse2 = make_poisson_pop(rate=500, n_cells=10, t_start=4600, t_stop=4605, seed_base= None)
+spkt_SAI_pulse2 = make_poisson_pop(rate=500, n_cells=10, t_start=11600, t_stop=11605, seed_base= None)
+spkt_SAII_pulse2 = make_poisson_pop(rate=500, n_cells=10, t_start=11600, t_stop=11605, seed_base= None)
 
-spkt_SAI_pulse3 = make_poisson_pop(rate=500, n_cells=10, t_start=4700, t_stop=4705, seed_base= None)
-spkt_SAII_pulse3 = make_poisson_pop(rate=500, n_cells=10, t_start=4700, t_stop=4705, seed_base= None)
+spkt_SAI_pulse3 = make_poisson_pop(rate=500, n_cells=10, t_start=11700, t_stop=11705, seed_base= None)
+spkt_SAII_pulse3 = make_poisson_pop(rate=500, n_cells=10, t_start=11700, t_stop=11705, seed_base= None)
 
-spkt_SAI_pulse4 = make_poisson_pop(rate=500, n_cells=10, t_start=4800, t_stop=4805, seed_base= None)
-spkt_SAII_pulse4 = make_poisson_pop(rate=500, n_cells=10, t_start=4800, t_stop=4805, seed_base= None)
+spkt_SAI_pulse4 = make_poisson_pop(rate=500, n_cells=10, t_start=11800, t_stop=11805, seed_base= None)
+spkt_SAII_pulse4 = make_poisson_pop(rate=500, n_cells=10, t_start=11800, t_stop=11805, seed_base= None)
 
-spkt_SAI_pulse5 = make_poisson_pop(rate=500, n_cells=10, t_start=4900, t_stop=4905, seed_base= None)
-spkt_SAII_pulse5 = make_poisson_pop(rate=500, n_cells=10, t_start=4900, t_stop=4905, seed_base= None)
+spkt_SAI_pulse5 = make_poisson_pop(rate=500, n_cells=10, t_start=11900, t_stop=11905, seed_base= None)
+spkt_SAII_pulse5 = make_poisson_pop(rate=500, n_cells=10, t_start=11900, t_stop=11905, seed_base= None)
 
-def merge_trains(a, b, c, d, e, f):
-   return [sorted(u + v + w + x + y + z) for u, v, w, x, y, z in zip(a, b, c, d, e, f)]
+spkt_SAI_pulse6 = make_poisson_pop(rate=500, n_cells=10, t_start=11900, t_stop=11905, seed_base= None)
+spkt_SAII_pulse6 = make_poisson_pop(rate=500, n_cells=10, t_start=11900, t_stop=11905, seed_base= None)
+
+spkt_SAI_pulse7 = make_poisson_pop(rate=500, n_cells=10, t_start=12000, t_stop=12005, seed_base= None)
+spkt_SAII_pulse7 = make_poisson_pop(rate=500, n_cells=10, t_start=12000, t_stop=12005, seed_base= None)
+
+spkt_SAI_pulse8 = make_poisson_pop(rate=500, n_cells=10, t_start=12100, t_stop=12105, seed_base= None)
+spkt_SAII_pulse8 = make_poisson_pop(rate=500, n_cells=10, t_start=12100, t_stop=12105, seed_base= None)
+
+spkt_SAI_pulse9 = make_poisson_pop(rate=500, n_cells=10, t_start=12200, t_stop=12205, seed_base= None)
+spkt_SAII_pulse9 = make_poisson_pop(rate=500, n_cells=10, t_start=12200, t_stop=12205, seed_base= None)
+
+spkt_SAI_pulse10 = make_poisson_pop(rate=500, n_cells=10, t_start=12300, t_stop=12305, seed_base= None)
+spkt_SAII_pulse10 = make_poisson_pop(rate=500, n_cells=10, t_start=12300, t_stop=12305, seed_base= None)
+
+spkt_SAI_pulse11 = make_poisson_pop(rate=500, n_cells=10, t_start=12400, t_stop=12405, seed_base= None)
+spkt_SAII_pulse11 = make_poisson_pop(rate=500, n_cells=10, t_start=12400, t_stop=12405, seed_base= None)
+
+spkt_SAI_pulse12 = make_poisson_pop(rate=500, n_cells=10, t_start=12500, t_stop=12505, seed_base= None)
+spkt_SAII_pulse12 = make_poisson_pop(rate=500, n_cells=10, t_start=12500, t_stop=12505, seed_base= None)
+
+spkt_SAI_pulse13 = make_poisson_pop(rate=500, n_cells=10, t_start=12600, t_stop=12605, seed_base= None)
+spkt_SAII_pulse13 = make_poisson_pop(rate=500, n_cells=10, t_start=12600, t_stop=12605, seed_base= None)
+
+spkt_SAI_pulse14 = make_poisson_pop(rate=500, n_cells=10, t_start=12700, t_stop=12705, seed_base= None)
+spkt_SAII_pulse14 = make_poisson_pop(rate=500, n_cells=10, t_start=12700, t_stop=12705, seed_base= None)
+
+spkt_SAI_pulse15 = make_poisson_pop(rate=500, n_cells=10, t_start=12800, t_stop=12805, seed_base= None)
+spkt_SAII_pulse15 = make_poisson_pop(rate=500, n_cells=10, t_start=12800, t_stop=12805, seed_base= None)
+
+spkt_SAI_pulse16 = make_poisson_pop(rate=500, n_cells=10, t_start=12900, t_stop=12905, seed_base= None)
+spkt_SAII_pulse16 = make_poisson_pop(rate=500, n_cells=10, t_start=12900, t_stop=12905, seed_base= None)
+
+from itertools import chain
+
+def merge_trains(*trains):
+    return [sorted(chain.from_iterable(group)) for group in zip(*trains)]
 
 def merge_two_trains(a, b):
    return [sorted(u + v) for u, v in zip(a, b)]
 
-#spkt_SAI  = merge_trains(spkt_SAI_base,  spkt_SAI_pulse,spkt_SAI_pulse2, spkt_SAI_pulse3, spkt_SAI_pulse4, spkt_SAI_pulse5)
-#spkt_SAII = merge_trains(spkt_SAII_base, spkt_SAII_pulse, spkt_SAII_pulse2, spkt_SAII_pulse3, spkt_SAII_pulse4, spkt_SAII_pulse5)
+spkt_SAI  = merge_trains(spkt_SAI_base,  spkt_SAI_pulse,spkt_SAI_pulse2, spkt_SAI_pulse3, spkt_SAI_pulse4, spkt_SAI_pulse5, spkt_SAI_pulse6, spkt_SAI_pulse7, spkt_SAI_pulse8, spkt_SAI_pulse9, spkt_SAI_pulse10, spkt_SAI_pulse11, spkt_SAI_pulse12, spkt_SAI_pulse13, spkt_SAI_pulse14, spkt_SAI_pulse15, spkt_SAI_pulse16)
+spkt_SAII = merge_trains(spkt_SAII_base, spkt_SAII_pulse, spkt_SAII_pulse2, spkt_SAII_pulse3, spkt_SAII_pulse4, spkt_SAII_pulse5, spkt_SAII_pulse6, spkt_SAII_pulse7, spkt_SAII_pulse8, spkt_SAII_pulse9, spkt_SAII_pulse10, spkt_SAII_pulse11, spkt_SAII_pulse12, spkt_SAII_pulse13, spkt_SAII_pulse14, spkt_SAII_pulse15, spkt_SAII_pulse16)
 
-spkt_SAI = merge_two_trains(spkt_SAI_base, spkt_SAI_pulse)
-spkt_SAII = merge_two_trains(spkt_SAII_base, spkt_SAI_pulse)
+#spkt_SAI = merge_two_trains(spkt_SAI_base, spkt_SAI_pulse)
+#spkt_SAII = merge_two_trains(spkt_SAII_base, spkt_SAI_pulse)
 
 spkt_C = make_poisson_pop(rate=7, n_cells=80, t_start=0, t_stop=cfg.duration, seed_base= None)
 
 ## PRIMARY AFFERENTS TIME-VARYING STIMULUS (NORMAL STIMULUS)
-#netParams.popParams['Ab_SAI'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAI}  # input from Ab_slow adapting type I
-#netParams.popParams['Ab_SAII'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAII}  # input from Ab_slow adapting type II
+netParams.popParams['Ab_SAI'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAI}  # input from Ab_slow adapting type I
+netParams.popParams['Ab_SAII'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAII}  # input from Ab_slow adapting type II
 #netParams.popParams['Ad'] = {'cellModel': 'VecStim', 'numCells': 20, 'spkTimes': spkt_Ad}  # input from Adelta
 netParams.popParams['C_PEP'] = {'cellModel': 'VecStim', 'numCells': 80, 'spkTimes': spkt_C}  # input from peptidergic C fibers
 netParams.popParams['C_NP'] = {'cellModel': 'VecStim', 'numCells': 80, 'spkTimes': spkt_C}  # input from non-peptidergic C fibers
@@ -123,7 +158,7 @@ netParams.connParams['Ab_SAI_AMPA->PKC'] = {
     'oneSynPerNetcon': True,
     'preConds': {'popLabel': 'Ab_SAI'}, 
     'postConds': {'popLabel': 'PKC'},  
-    'weight': cfg.Ab_EX_AMPA,           
+    'weight': cfg.Ab_PKC_AMPA,           
     'sec': 'dend',
     'probability': 0.2,
     'delay': 1.0,
@@ -134,7 +169,7 @@ netParams.connParams['Ab_SAI_NMDA->PKC'] = {
     'oneSynPerNetcon': True,
     'preConds': {'popLabel': 'Ab_SAI'}, 
     'postConds': {'popLabel': 'PKC'},  
-    'weight': cfg.Ab_EX_NMDA,           
+    'weight': cfg.Ab_PKC_NMDA,
     'sec': 'dend',
     'probability': 0.2,
     'delay': 1.0,
@@ -167,7 +202,7 @@ netParams.connParams['Ab_SAI_AMPA->PV'] = {
     'oneSynPerNetcon': True,
     'preConds': {'popLabel': 'Ab_SAI'}, 
     'postConds': {'popLabel': 'PV'},  
-    'weight': cfg.Ab_IN_AMPA,           
+    'weight': cfg.Ab_PV_AMPA,           
     'sec': 'dend',
     'probability': 0.2,
     'delay': 1.0,
@@ -178,7 +213,7 @@ netParams.connParams['Ab_SAI_NMDA->PV'] = {
     'oneSynPerNetcon': True,
     'preConds': {'popLabel': 'Ab_SAI'}, 
     'postConds': {'popLabel': 'PV'},  
-    'weight': cfg.Ab_IN_NMDA,           
+    'weight': cfg.Ab_PV_NMDA,           
     'sec': 'dend',
     'probability': 0.2,
     'delay': 1.0,
@@ -200,7 +235,7 @@ netParams.connParams['Ab_SAII_AMPA->PKC'] = {
     'oneSynPerNetcon': True,
     'preConds': {'popLabel': 'Ab_SAII'}, 
     'postConds': {'popLabel': 'PKC'},  
-    'weight': cfg.Ab_EX_AMPA,           
+    'weight': cfg.Ab_PKC_AMPA,           
     'sec': 'dend',
     'probability': 0.2,
     'delay': 1.0,
@@ -211,7 +246,7 @@ netParams.connParams['Ab_SAII_NMDA->PKC'] = {
     'oneSynPerNetcon': True,
     'preConds': {'popLabel': 'Ab_SAII'}, 
     'postConds': {'popLabel': 'PKC'},  
-    'weight': cfg.Ab_EX_NMDA,           
+    'weight': cfg.Ab_PKC_NMDA,
     'sec': 'dend',
     'probability': 0.2,
     'delay': 1.0,
@@ -244,7 +279,7 @@ netParams.connParams['Ab_SAII_AMPA->PV'] = {
     'oneSynPerNetcon': True,
     'preConds': {'popLabel': 'Ab_SAII'}, 
     'postConds': {'popLabel': 'PV'},  
-    'weight': cfg.Ab_IN_AMPA,           
+    'weight': cfg.Ab_PV_AMPA,           
     'sec': 'dend',
     'probability': 0.2,
     'delay': 1.0,
@@ -255,7 +290,7 @@ netParams.connParams['Ab_SAII_NMDA->PV'] = {
     'oneSynPerNetcon': True,
     'preConds': {'popLabel': 'Ab_SAII'}, 
     'postConds': {'popLabel': 'PV'},  
-    'weight': cfg.Ab_IN_NMDA,           
+    'weight': cfg.Ab_PV_NMDA,
     'sec': 'dend',
     'probability': 0.2,
     'delay': 1.0,
