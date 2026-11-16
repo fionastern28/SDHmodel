@@ -9,3 +9,4 @@ output/
 data/
 *.pkl
 .DS_Store
+*.txt

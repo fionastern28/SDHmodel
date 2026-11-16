@@ -37,9 +37,9 @@ spkt_SAII_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.dura
 PULSE_START = 11500   # ms, first pulse onset
 PULSE_END   = 13000   # ms, no pulse starts after this minus PULSE_WIDTH
 PULSE_WIDTH = 5       # ms, duration of each pulse
-PULSE_GAP   = 15      # ms, off time between pulses
+PULSE_GAP   = 45      # ms, off time between pulses
 PULSE_RATE  = 500     # Hz, Poisson rate during each pulse
-PERIOD = PULSE_WIDTH + PULSE_GAP   # 20 ms -> 50 Hz
+PERIOD = PULSE_WIDTH + PULSE_GAP   # 50 ms -> 20 Hz
 
 spkt_SAI_pulses = []
 spkt_SAII_pulses = []

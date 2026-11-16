@@ -11,9 +11,9 @@ Then reports the mean and std dev of the per-file differences.
 Usage:
   python3 nk1_rate_diff.py run01.json run02.json run03.json run04.json run05.json
   LAPTOP:
-  python3 nk1_rate_diff.py /Users/fionastern/Desktop/SDHmodel/data/10Hz_SCS_comparison_updated_AB_connections/run*.json 
+  python3 nk1_rate_diff.py /Users/fionastern/Desktop/SDHmodel/data/SCS_5Hz_input/run*.json 
   LAB:
-  python3 nk1_rate_diff.py /Users/fstern/Desktop/SDHmodel/data/10Hz_SCS_comparison/run*.json
+  python3 nk1_rate_diff.py /Users/fstern/Desktop/SDHmodel/data/run*.json
 """
 import json
 import sys

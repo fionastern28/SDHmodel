@@ -7,6 +7,9 @@ from netpyne import sim
 from neuron import h
 import os 
 
+### below is when all running on one core ###
+
+
 N_RUNS = 20                
 
 for run in range(N_RUNS):
