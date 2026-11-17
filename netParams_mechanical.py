@@ -30,8 +30,8 @@ with open('spkt/spkt_SAII_%s.json' %(cfg.freq), 'rb') as spkt_SAII: spkt_SAII = 
 with open('spkt/spkt_Ad_%s.json' %(cfg.freq), 'rb') as spkt_Ad: spkt_Ad = json.load(spkt_Ad)
 with open('spkt/spkt_C_%s.json' %(cfg.freq), 'rb') as spkt_C: spkt_C = json.load(spkt_C)
 
-spkt_SAI_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
-spkt_SAII_base = make_poisson_pop(rate=5, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
+spkt_SAI_base = make_poisson_pop(rate=500, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
+spkt_SAII_base = make_poisson_pop(rate=500, n_cells=10, t_start=0, t_stop=cfg.duration, seed_base= None)
 
 # --- Stimulation train settings ---
 PULSE_START = 11500   # ms, first pulse onset
@@ -62,11 +62,11 @@ spkt_SAII = merge_trains(spkt_SAII_base, *spkt_SAII_pulses)
 spkt_C = make_poisson_pop(rate=7, n_cells=80, t_start=0, t_stop=cfg.duration, seed_base= None)
 
 ## PRIMARY AFFERENTS TIME-VARYING STIMULUS (NORMAL STIMULUS)
-netParams.popParams['Ab_SAI'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAI}  # input from Ab_slow adapting type I
-netParams.popParams['Ab_SAII'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAII}  # input from Ab_slow adapting type II
+netParams.popParams['Ab_SAI'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAI_base}  # input from Ab_slow adapting type I
+netParams.popParams['Ab_SAII'] = {'cellModel': 'VecStim', 'numCells': 10, 'spkTimes': spkt_SAII_base}  # input from Ab_slow adapting type II
 #netParams.popParams['Ad'] = {'cellModel': 'VecStim', 'numCells': 20, 'spkTimes': spkt_Ad}  # input from Adelta
 netParams.popParams['C_PEP'] = {'cellModel': 'VecStim', 'numCells': 80, 'spkTimes': spkt_C}  # input from peptidergic C fibers
-netParams.popParams['C_NP'] = {'cellModel': 'VecStim', 'numCells': 80, 'spkTimes': spkt_C}  # input from non-peptidergic C fibers
+#netParams.popParams['C_NP'] = {'cellModel': 'VecStim', 'numCells': 80, 'spkTimes': spkt_C}  # input from non-peptidergic C fibers
 
 ## SETTING OF SPINAL NEURONS
 cells.PKCRule['conds'] = {'cellType': 'PKC'}
@@ -91,16 +91,16 @@ netParams.cellParams['ISLETRule'] = cells.INcellRule
 netParams.cellParams['NK1Rule'] = cells.PROcellRule
 
 ## SETTING POPULATION OF SPINAL NEURONS
-netParams.popParams['PKC' ] = {'cellType': 'PKC', 'numCells': 30} # PKCg+ neurons (excitatory)
+#netParams.popParams['PKC' ] = {'cellType': 'PKC', 'numCells': 30} # PKCg+ neurons (excitatory)
 #netParams.popParams['VGLUT3'] = {'cellType': 'EXdl', 'numCells': 4} # VGLUT3+ neurons (excitatory)
-netParams.popParams['PV'] = {'cellType': 'IN', 'numCells': 15} # PV+ neurons (inhibitory)
+#netParams.popParams['PV'] = {'cellType': 'IN', 'numCells': 15} # PV+ neurons (inhibitory)
 #netParams.popParams['DOR' ] = {'cellType': 'EXdl', 'numCells': 30} # DOR+ neurons (excitatory)
 #netParams.popParams['TrC'] = {'cellType': 'EXib', 'numCells': 10} # Transient Central neurons (excitatory)
 netParams.popParams['DYN'] = {'cellType': 'IN', 'numCells': 60} # Central/DYN+ neurons (inhibitory)
-netParams.popParams['SOM'] = {'cellType': 'SOM', 'numCells': 15} # SOM+ neurons (excitatory)
+#netParams.popParams['SOM'] = {'cellType': 'SOM', 'numCells': 15} # SOM+ neurons (excitatory)
 #netParams.popParams['CR'] = {'cellType': 'CR', 'numCells': 20} # CR+ neurons (excitatory)
 #netParams.popParams['ISLET'] = {'cellType': 'IN', 'numCells': 15} # Islet-type neurons (inhibitory)
-netParams.popParams['NK1'] = {'cellType': 'PRO', 'numCells': 10} # NK1+ neurons (projection)
+#netParams.popParams['NK1'] = {'cellType': 'PRO', 'numCells': 10} # NK1+ neurons (projection)
 
 ###################################################################################################################################
 #   Synaptic Mechanisms

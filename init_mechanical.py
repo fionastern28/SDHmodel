@@ -10,7 +10,7 @@ import os
 ### below is when all running on one core ###
 
 
-N_RUNS = 20                
+N_RUNS = 1                
 
 for run in range(N_RUNS):
     print(f"Run {run+1}/{N_RUNS}")

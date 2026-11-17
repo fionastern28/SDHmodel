@@ -11,7 +11,7 @@ cfg = specs.SimConfig()
 
 cfg.hParams = {'celsius': 36, 'v_init': -60 }
 cfg.vrest = cfg.hParams['v_init']
-cfg.duration = 1000
+cfg.duration = 3000
  
 cfg.recordStep = 0.025
 
@@ -115,7 +115,7 @@ cfg.analysis['plotConn'] = {'includePre': ['all'], 'includePost': ['all'], 'feat
 # cfg.analysis['plot2Dnet'] = False 
 
 # use for GA simulation
-cfg.verbose = True
+cfg.verbose = False
 cfg.filename = 'sim_'
 cfg.printPopAvgRates = [ 0, 5000 ]
 cfg.dt = 0.025

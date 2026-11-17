@@ -17,8 +17,8 @@ simConfig, netParams = sim.readCmdLineArgs(simConfigDefault='cfg_mechanical.py',
 
 simConfig.simLabel = f'run{run+1:02d}'
 # Different random seeds per trial (same as init_mechanical.py)
-simConfig.seeds = {'conn': 4311 + run, 'stim': 1214 + run, 'loc': 4121 + run}
-simConfig.spktSeed = run*297
+simConfig.seeds = {'conn': 43111 + run, 'stim': 12114 + run, 'loc': 41121 + run}
+simConfig.spktSeed = run*267
 
 # Create, Simulate, and Analyze the Network:
 sim.createSimulateAnalyze(netParams = netParams, simConfig = simConfig)
